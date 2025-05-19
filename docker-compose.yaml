@@ -1,0 +1,15 @@
+services:
+  teleport-et-demo:
+    build: .
+    hostname: teleport-et-container
+    image: teleport-et:local
+    labels:
+      kompose.image-pull-policy: "IfNotPresent"
+    environment:
+      TELEPORT_ADDRESS: "${TELEPORT_ADDRESS}"
+      TELEPORT_JOIN_TOKEN: "${TELEPORT_JOIN_TOKEN}"
+      ENVIRONMENT_TAG: "${ENVIRONMENT_TAG}"
+    ports:
+      - "2222:2222"
+      - "2022:2022"
+      - "5000-5100:5000-5100"
