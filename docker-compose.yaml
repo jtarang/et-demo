@@ -5,11 +5,12 @@ services:
     image: teleport-et:local
     labels:
       kompose.image-pull-policy: "IfNotPresent"
+      kompose.service.type: "NodePort"
     environment:
       TELEPORT_ADDRESS: "${TELEPORT_ADDRESS}"
       TELEPORT_JOIN_TOKEN: "${TELEPORT_JOIN_TOKEN}"
       ENVIRONMENT_TAG: "${ENVIRONMENT_TAG}"
     ports:
-      - "2222:2222"
-      - "2022:2022"
-      - "5000-5100:5000-5100"
+      - "2222:22"   # SSHD
+      - "2022:2022" # Eternal Terminal
+    #restart: unless-stopped

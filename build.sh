@@ -3,7 +3,7 @@ rm .env
 
 export TELEPORT_ADDRESS="nebula-dash.teleport.sh:443"
 export TELEPORT_JOIN_TOKEN=$(tctl tokens add --type=node --format=text)
-export ENVIRONMENT_TAG="local"
+export ENVIRONMENT_TAG="k8s"
 
 echo "TELEPORT_ADDRESS=${TELEPORT_ADDRESS}" >> .env
 echo "TELEPORT_JOIN_TOKEN=${TELEPORT_JOIN_TOKEN}" >> .env
